@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bases VueJS</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</head>
+<body>
+  <div id="myApp">
+
+    <h3>Fraces de Batman <small>{{ newQuote }}</small></h3>
+
+    <!-- Directiva v-model-->
+    <input 
+      type="text" 
+      v-model="newQuote" 
+      v-on:keypress.enter="addQuote2"
+      />
+      <!-- se puede hacer asi v-on:keypress="addQuote", o con el modificador de eventos como en el input --> 
+
+    <hr>
+
+    <!-- Irectiva v-for -->
+    <!--
+      <ul>
+        <li v-for="( quote, index ) in quotes" >
+          <b>{{ index + 1 }} - {{ quote.quote }}</b>
+          <blockquote>- {{ quote.author }}</blockquote>
+        </li>
+      </ul>
+    -->
+
+
+    <!-- Lo mismo con destructuración del objeto -->
+    <ul>
+      <li v-for="( { quote, author}, index ) in quotes" >
+        <b>{{ index + 1 }} - {{ quote }}</b>
+        <!-- Directiva v-if y v-show -->
+        <!-- El v-if no contruye el elemento HTLM se cumple la condicion-->
+        <!-- blockquote v-if="author">- {{ author }}</blockquote -->
+
+        <!-- El v-show construye el elemento HTML pero si no se cumple la condición no lo muestra -->
+        <blockquote v-show="author">- {{ author }}</blockquote>
+      </li>
+    </ul>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

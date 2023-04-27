@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bases VueJS</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</head>
+<body>
+  <div id="myApp">
+    <!-- 
+      Esto lo podemos hacer desde el 
+      app.js dentro del "template"
+    -->
+    <h4> {{ quote }} </h4>
+    <blockquote> - {{ author }} </blockquote>
+
+    <button v-on:click="changeQuote">
+      Cambiar frase
+    </button>
+    
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
